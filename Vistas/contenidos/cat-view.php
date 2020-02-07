@@ -3,7 +3,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-balance zmdi-hc-fw"></i> Administración <small>CATEDRATICOS</small></h1>
 			</div>
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+			<p class="lead"></p>
 		</div>
 
 		<div class="container-fluid">
@@ -37,25 +37,23 @@
 										<?php 
 										require_once "./controladores/cursocontrolador.php";
 										$carr=new cursoControlador();?>
-									<h2><label class="control-label">Carrera *</label></h2>
-									<div class="btn-group">
-									  <select class="form-control" onchange="habilitar(this.value,grad.value,cat.values);" name="carr" id="carr">
-			   <?php echo $carr->mostrar_carrera(); ?>
-			</select>
-     
-            </div>
+										<h2><label class="control-label">Carrera *</label></h2>
+										<div class="btn-group">
+									  <select class="form-control" onchange="habilitar(this.value,grado.value,cat.values);" name="carrera" id="carrera">
+			 						  <?php echo $carr->mostrar_carrera(); ?>
+										</select>
+              							 </div>
 				    				</div>
 				    				<div class="col-xs-12 col-sm-6">
 									<h2><label class="control-label">Grado *</label></h2>
 									<div class="btn-group">
-									
 									<div>
-             <select class="form-control"  onchange="habilitar(this.value,carr.value,cat.values);"id="grad">
-			   <?php echo $carr->mostrar_grado(); ?>
-			</select>
+             						<select class="form-control"  onchange="habilitar(this.value,carrera.value,cat.values);"id="grado" name="grado">
+			   						<?php echo $carr->mostrar_grado(); ?>
+									</select>
 		
-		</div>
-            </div>
+									</div>
+          						  </div>
 							</div>
 							
 								<div class="col-xs-12 col-sm-6">

@@ -33,7 +33,7 @@ function recargarlista(){
     $.ajax({
     type:"POST",
     url: "ajax/cursoajax.php",
-    data:{carrera:  $('#carr').val(),grado:  $('#grad').val()},
+    data:{carrera:  $('#carrera').val(),grado:  $('#grado').val()},
     success: function(r){
         $('#curso').html(r);
     }
