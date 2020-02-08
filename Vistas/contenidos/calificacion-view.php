@@ -2,79 +2,86 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i> Alumnos</h1>
 			</div>
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+			<p class="lead">Seleccione la carrera, el grado y el curso para poder ingresar calificaciones</p>
 		</div>
 		
-		<div class="container-fluid text-center">
-			<div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default btn-raised">SELECCIONE UNA CARRERA</a>
-              <a href="javascript:void(0)" data-target="dropdown-menu" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#!">Categoría 1</a></li>
-                <li><a href="#!">Categoría 2</a></li>
-                <li><a href="#!">Categoría 3</a></li>
-                <li><a href="#!">Categoría 4</a></li>
-                <li><a href="#!">Categoría 5</a></li>
-                <li><a href="#!">Categoría 6</a></li>
-                <li><a href="#!">Categoría 7</a></li>
-              </ul>
-            </div>
+	
+		<div class="col-xs-12 col-sm-4 text-center">
+		<h2><label class="control-label">Carrera *</label></h2>
+		<div class="btn-group">
+		<div class="btn-group">
+		 <select class="form-control" id="carrera">
+		
+			</select>
+       	 </div>
+         </div>
 		</div>
-
-		<div class="container-fluid text-center">
-			<div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default btn-raised">SELECCIONE UN GRADO</a>
-              <a href="javascript:void(0)" data-target="dropdown-menu" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#!">Categoría 1</a></li>
-                <li><a href="#!">Categoría 2</a></li>
-                <li><a href="#!">Categoría 3</a></li>
-                <li><a href="#!">Categoría 4</a></li>
-                <li><a href="#!">Categoría 5</a></li>
-                <li><a href="#!">Categoría 6</a></li>
-                <li><a href="#!">Categoría 7</a></li>
-              </ul>
-            </div>
+		
+		
+	
+		<div class="col-xs-12 col-sm-4 text text-center">
+		<h2><label class="control-label">Grado *</label></h2>
+		<div class="btn-group">
+		<div class="btn-group">
+		<select class="form-control" id="carrera">
+		</select>
+        </div>
+        </div>
 		</div>
+	
 
+		
+		<div class="col-xs-12 col-sm-4 tex text-center">
+		<h2><label class="control-label">Curso *</label></h2>
+		<div class="btn-group">
+		<div class="btn-group">
+		<select class="form-control" id="carrera">
+		</select>
+        </div>
+        </div>
+		</div>
+		
+		
 
 		<div class="container-fluid">
-			<h2 class="text-titles text-center">Categoría seleccionada</h2>
+		
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="list-group">
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img class="circle" src="<?php echo SERVERURL;?>vistas/assets/book/book-default.png" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading">1 - Título completo del libro</h4>
-								<p class="list-group-item-text">
-									<strong>Autor: </strong>Nombre Autor del libro <br>
-									<a href="book-info.html" class="btn btn-primary" title="Más información"><i class="zmdi zmdi-info"></i></a>
-									<a href="#!" class="btn btn-primary" title="Ver PDF"><i class="zmdi zmdi-file"></i></a>
-									<a href="#!" class="btn btn-primary" title="Descargar PDF"><i class="zmdi zmdi-cloud-download"></i></a>
-									<a href="book-config.html" class="btn btn-primary" title="Gestionar libro"><i class="zmdi zmdi-wrench"></i></a>
-								</p>
-							</div>
+					<div class="panel panel-primary">
+						<div class="panel panel-heading"> 
+						<h4 class="text-titles text-center">Listado de Alumnos</h4>
 						</div>
-						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img src="<?php echo SERVERURL;?>vistas/assets/book/book-cover.jpg" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading">2 - Título completo del libro</h4>
-								<p class="list-group-item-text">
-									<strong>Autor: </strong>Nombre Autor del libro <br>
-									<a href="book-info.html" class="btn btn-primary" title="Más información"><i class="zmdi zmdi-info"></i></a>
-									<a href="#!" class="btn btn-primary" title="Ver PDF"><i class="zmdi zmdi-file"></i></a>
-									<a href="#!" class="btn btn-primary" title="Descargar PDF"><i class="zmdi zmdi-cloud-download"></i></a>
-									<a href="book-config.html" class="btn btn-primary" title="Gestionar libro"><i class="zmdi zmdi-wrench"></i></a>
-								</p>
-							</div>
+						<div class="panel panel-body">
+<div class="table-responsive">
+	<table class="table table-hover text-center">
+<thead>
+	<tr>
+		<th class="text-center">Clave</th>
+		<th class="text-center">Nombre Completo</th>
+		<th class="text-center">Calificaciones</th>
+		<th class="text-center">Ingresar calificacion</th>
+		<th class="text-center">Agregar Comentario</th>
+
+	</tr>
+</thead>
+<tbody>
+<tr>
+	<td> <i>Codigo</i></td>
+	<td> <i class="zmdi zmdi-account">Nombre</i></td>
+	<td> <a class="btn zmdi-brightness-6"><i>1888</i></a></td>
+	<td> <a class="btn btn-success "><i class="zmdi zmdi-plus">Ingresar</i></a></td>
+	<td> <a class="btn btn-info"><i class="zmdi zmdi-comment-text">Agregar</i></a></td>
+</tr>
+
+</tbody>
+</table>
+</div>
 						</div>
-						<div class="list-group-separator"></div>
+						</div>
+				
+					
+						
 					</div>
 					<nav class="text-center">
 						<ul class="pagination pagination-sm">
