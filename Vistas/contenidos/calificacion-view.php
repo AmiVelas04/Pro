@@ -2,6 +2,7 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i> Alumnos</h1>
 			</div>
+			<?php require_once "./controladores/calificacionControlador.php"; ?>
 			<p class="lead">Seleccione la carrera, el grado y el curso para poder ingresar calificaciones</p>
 		</div>
 		
@@ -10,8 +11,11 @@
 		<h2><label class="control-label">Carrera *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
-		 <select class="form-control" id="carrera">
-		
+		 <select class="form-control" id="carrerac" name"carrerac" onchange="mostrar_grad(this.value);" >
+		 <?php 
+		$cur=new calificacionControlador();
+		echo $cur->mostrar_carrera();
+		?>
 	    </select>
        	</div>
          </div>
@@ -23,7 +27,12 @@
 		<h2><label class="control-label">Grado *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
-		<select class="form-control" id="carrera">
+	
+		
+		<div id ="mgrado" name="mgrado"></div>
+	
+		
+	
 		</select>
         </div>
         </div>
@@ -35,7 +44,11 @@
 		<h2><label class="control-label">Curso *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
-		<select class="form-control" id="carrera">
+		<select class="form-control" id="cursoc">
+		<?php 
+		$cur=new calificacionControlador();
+		echo $cur->mostrar_curso();
+		?>
 		</select>
         </div>
         </div>

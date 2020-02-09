@@ -20,11 +20,26 @@ recargarlista();
 
 }
 
+function  mostrar_grad(valor){
+    
+    
+    if (valor!="0")
+    {
 
+        busca_grad();
+  
+    }
+    else    
+    {
+     
+       // document.getElementById("grado").disabled=true;
+      //  document.getElementById("curso").disabled=true;
+
+    }
+}
 
 
 function recargarlista(){
-
     $.ajax({
     type:"POST",
     url: "ajax/cursoajax.php",
@@ -35,15 +50,19 @@ function recargarlista(){
     });
 }
 
-/*
-$(function(){
-    curso();
-})
-
-function curso(){
+function busca_grad(){
+   // alert('si llega hasta aqui');
     $.ajax({
-        url:cursoCotrolador.php
-    })
-}*/
+        type:"POST",
+        url: "ajax/cursoajax.php",
+        data:{carr: $('#carrerac').val()},
+        success: function(a){
+            $('#mgrado').html(a);
+        }
+    });
+}
+
+
+
 
 

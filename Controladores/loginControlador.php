@@ -48,7 +48,7 @@ class loginControlador extends loginModelo
 			if ($insertarbitacora->rowcount()>=1) 
 			{*/
 				 session_start(['name'=>'pyc']);
-				 session_start(['user'=>$usuario]);
+				$_SESSION['usuario'] =$usuario;
 			 /*	$_SESSION['usuarip_pyc']=$row['CuentaUsuario'];
 			 	$_SESSION['tipo_pyc']=$row['CuentaTipo'];
 			 	$_SESSION['privilegio_pyc']=$row['CuentaPrivilegio'];
