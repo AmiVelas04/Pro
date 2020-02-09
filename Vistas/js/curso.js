@@ -19,14 +19,9 @@ recargarlista();
     }
 
 }
-/*
-$(document).ready(function(){
-    recargarlista();
-$('#carr').change(function(){
-recargarlista();
 
-});
-})*/
+
+
 
 function recargarlista(){
 

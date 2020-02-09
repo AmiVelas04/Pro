@@ -12,8 +12,8 @@
 		<div class="btn-group">
 		 <select class="form-control" id="carrera">
 		
-			</select>
-       	 </div>
+	    </select>
+       	</div>
          </div>
 		</div>
 		
@@ -59,7 +59,7 @@
 	<tr>
 		<th class="text-center">Clave</th>
 		<th class="text-center">Nombre Completo</th>
-		<th class="text-center">Calificaciones</th>
+		<th class="text-center">Fotografia</th>
 		<th class="text-center">Ingresar calificacion</th>
 		<th class="text-center">Agregar Comentario</th>
 

@@ -116,6 +116,4 @@ protected function codigo_encargado($encargado){
 	return $id;
 }
 
-
-
 }
