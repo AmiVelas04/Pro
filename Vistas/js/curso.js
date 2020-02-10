@@ -20,23 +20,34 @@ recargarlista();
 
 }
 
-function  mostrar_grad(valor){
+function  mostrar_grad(usu){
     
-    
-    if (valor!="0")
-    {
+ busca_grad(usu);
 
-        busca_grad();
-  
+}
+
+function mostrar_curso(usu){
+    
+buscar_cur(usu);
+}
+
+function  alumnos(usu){
+    var curso;
+    var grado;
+    var carrera
+    carrera=$('#carrerac').val();
+    grado=$('#gradoc').val();
+    curso=$('#cursos').val();
+    
+    if (grado!=0 && carrera!=0 && curso!=0)
+    {
+    buscar_alu(usu);
     }
-    else    
-    {
-     
-       // document.getElementById("grado").disabled=true;
-      //  document.getElementById("curso").disabled=true;
-
+    else{
+        alert ("no se ha escogido un valor correcto");
     }
 }
+
 
 
 function recargarlista(){
@@ -49,15 +60,44 @@ function recargarlista(){
     }
     });
 }
+//busca los grados asignadoa al catedratico
+function busca_grad(usu){
 
-function busca_grad(){
-   // alert('si llega hasta aqui');
     $.ajax({
         type:"POST",
         url: "ajax/cursoajax.php",
-        data:{carr: $('#carrerac').val()},
+        data:{carr: $('#carrerac').val(),usuario:usu},
         success: function(a){
             $('#mgrado').html(a);
+        }
+    });
+}
+
+//Busca los cursos asignados al catedraticos
+
+
+
+function buscar_cur(usu){
+        
+    $.ajax({
+        type:"POST",
+        url:"ajax/cursoajax.php",
+        data:{carre:$('#carrerac').val(),grado:$('#gradoc').val(),usuario:usu},
+        success:function(h){
+         
+$('#mostracurso').html(h);
+        }
+       });
+}
+
+function buscar_alu(usu){
+    $.ajax({
+        type:"POST",
+        url:"ajax/cursoajax.php",
+        data:{car:$('#carrerac').val(),grad:$('#gradoc').val(),cur:$('#cursos').val(),usuario:usu,},
+        success: function(r){
+            
+            $('#alumn').html(r);
         }
     });
 }

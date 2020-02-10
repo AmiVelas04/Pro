@@ -2,18 +2,19 @@
 			<div class="page-header">
 			  <h1 class="text-titles"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i> Alumnos</h1>
 			</div>
-			<?php require_once "./controladores/calificacionControlador.php"; ?>
+			<?php require_once "./controladores/calificacionControlador.php"; 
+			?>
 			<p class="lead">Seleccione la carrera, el grado y el curso para poder ingresar calificaciones</p>
 		</div>
 		
 	
 		<div class="col-xs-12 col-sm-4 text-center">
-		<h2><label class="control-label">Carrera *</label></h2>
+		<h2><label class="">Carrera *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
-		 <select class="form-control" id="carrerac" name"carrerac" onchange="mostrar_grad(this.value);" >
+		 <select class="form-control" id="carrerac" name="carrerac" onchange="mostrar_grad('<?php echo trim($_SESSION['usuario']); ?>');" >
 		 <?php 
-		$cur=new calificacionControlador();
+		 $cur=new calificacionControlador();
 		echo $cur->mostrar_carrera();
 		?>
 	    </select>
@@ -24,7 +25,7 @@
 		
 	
 		<div class="col-xs-12 col-sm-4 text text-center">
-		<h2><label class="control-label">Grado *</label></h2>
+		<h2><label class="">Grado *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
 	
@@ -41,15 +42,10 @@
 
 		
 		<div class="col-xs-12 col-sm-4 tex text-center">
-		<h2><label class="control-label">Curso *</label></h2>
+		<h2><label class="">Curso *</label></h2>
 		<div class="btn-group">
 		<div class="btn-group">
-		<select class="form-control" id="cursoc">
-		<?php 
-		$cur=new calificacionControlador();
-		echo $cur->mostrar_curso();
-		?>
-		</select>
+		<div id="mostracurso" name="mostracurso"></div>
         </div>
         </div>
 		</div>
@@ -66,30 +62,7 @@
 						<h4 class="text-titles text-center">Listado de Alumnos</h4>
 						</div>
 						<div class="panel panel-body">
-<div class="table-responsive">
-	<table class="table table-hover text-center">
-<thead>
-	<tr>
-		<th class="text-center">Clave</th>
-		<th class="text-center">Nombre Completo</th>
-		<th class="text-center">Fotografia</th>
-		<th class="text-center">Ingresar calificacion</th>
-		<th class="text-center">Agregar Comentario</th>
-
-	</tr>
-</thead>
-<tbody>
-<tr>
-	<td> <i>Codigo</i></td>
-	<td> <i class="zmdi zmdi-account">Nombre</i></td>
-	<td> <a class="btn zmdi-brightness-6"><i>1888</i></a></td>
-	<td> <a class="btn btn-success "><i class="zmdi zmdi-plus">Ingresar</i></a></td>
-	<td> <a class="btn btn-info"><i class="zmdi zmdi-comment-text">Agregar</i></a></td>
-</tr>
-
-</tbody>
-</table>
-</div>
+						<div id="alumn" name="alumn"></div>
 						</div>
 						</div>
 				

@@ -7,5 +7,5 @@
 	<script src="<?php echo SERVERURL; ?>vistas/js/ripples.min.js"></script>
 	<script src="<?php echo SERVERURL; ?>vistas/js/jquery.mCustomScrollbar.concat.min.js"></script>
 	<script src="<?php echo SERVERURL; ?>vistas/js/main.js"></script>
-	<link rel='stylesheet' type='text/css' href='<?php echo SERVERURL; ?>/vistas/css/sweetalert2.css'>
+	<link rel='stylesheet' type='text/css' href='<?php echo SERVERURL; ?>vistas/css/sweetalert2.css'>
 	

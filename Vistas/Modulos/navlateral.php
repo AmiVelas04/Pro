@@ -1,3 +1,4 @@
+
 <!-- SideBar -->
 	<section class="full-box cover dashboard-sideBar">
 		<div class="full-box dashboard-sideBar-bg btn-menu-dashboard"></div>
@@ -14,7 +15,8 @@
 			<div class="full-box dashboard-sideBar-UserInfo">
 				<figure class="full-box">
 					<img src="<?php echo SERVERURL; ?>vistas/assets/avatars/<?php echo $_SESSION['foto_sbp'] ?>" alt="UserIcon">
-					<figcaption class="text-center text-titles">User Name</figcaption>
+					<figcaption class="text-center text-titles"><?php 
+					echo $_SESSION['usuario']; ?></figcaption>
 				</figure>
 				<ul class="full-box list-unstyled text-center">
 					<li>

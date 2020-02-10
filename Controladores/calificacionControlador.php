@@ -28,19 +28,24 @@ class calificacionControlador extends calificacionModelo{
         return $cont;
     }
 
-    public function mostrar_grado($carr)
+    public function mostrar_grado($carr,$user)
     {
        
        
-        $sql=calificacionModelo::mostrar_grado_catedratico($carr);
-        $cont="<select class='form-control' id='gradoc'>";
+        $sql=calificacionModelo::mostrar_grado_catedratico($carr,$user);
+        $val='"'.$user.'"';       
+        $cont="<select class='form-control' id='gradoc'". trim(" onchange='mostrar_curso(". $val.")'>");
+       
         if ($sql->rowCount()>=1)
         {
+            $cont.="<option value='0'>Seleccione un Grado</option>";
             $datos=$sql->fetchall();
            
             foreach ($datos as $row) {
-                $cont.="<option value='".$row['id']."'>". $row['grado'] . "</option>";
+                $cont.="<option value='".$row['id']."'>". $row['grado'] . "</option> " . $carr;
             }
+            $cont.="</select>";
+            return $cont;
             return $cont;
         }
         else
@@ -52,30 +57,83 @@ class calificacionControlador extends calificacionModelo{
     }
 
 
-    public function mostrar_curso()
+    public function mostrar_curso($carr,$grad,$usu)
     {
-        $sql=calificacionControlador::mostrar_curso_catedratico();
-        $cont="";
+        
+        $sql=calificacionModelo::mostrar_curso_catedratico($carr,$grad,$usu);
+        $val='"'.$usu.'"';  
+            
+        $cont="<select class='form-control' id='cursos'". trim(" onchange='alumnos(". $val.")'>");
+     
         if ($sql->rowCount()>=1)
         {
+            $cont.="<option value='0'>Seleccione un Curso</option>";
             $datos=$sql->fetchall();
-            $cont.="<option value='0'>Seleccione un Curso </option>";
+          
             foreach ($datos as $row) {
                 $cont.="<option value='".$row['id']."'>". $row['curso'] . "</option>";
             }
+        }else
+        {
+        $cont.="<option value='0'>No tiene cursos asignados asignados</option>";
         }
+        $cont.=" </select>";
         return $cont;
     }
     
-    public function mostrar_alumnos_curso($cur,$carr,$grad)
+    public function mostrar_alumnos_curso($carr,$grad,$cur,$usu)
     {
-
-    }
-
-    public function verificar_catedratico(){
-   
+        $sql=calificacionModelo::mostrar_alumnos($carr,$grad,$cur,$usu);
+        $cont="  <div class='table-respon|sive'>
+        <table class='table table-hover text-center'>
+    <thead>
+        <tr>
+            <th class='text-center'>Clave</th>
+            <th class='text-center'>Nombre Completo</th>
+            <th class='text-center'>Fotografia</th>
+            <th class='text-center'>Ingresar calificacion</th>
+            <th class='text-center'>Agregar Comentario</th>
     
+        </tr>
+    </thead>
+    <tbody>
+        <div class='row'>";
+     
+	
+
+        if ($sql->rowCount()>=1)
+        {
+            $datos=$sql->fetchAll();
+
+            foreach($datos as $row)
+            {
+                $cont.="<tr>";
+            $cont.="<td> <i>".$row['codigo']."</i></td>";
+            $cont.="<td> <i class='zmdi zmdi-account'>".$row['nombre']."</i></td>";
+            $cont.="<td> <i>".$row['edad']."</i></td>";
+            $cont.=" <td> <a class='btn btn-success '><i class='zmdi zmdi-plus'>Ingresar</i></a></td>";
+            $cont.="  <td> <a class='btn btn-info'><i class='zmdi zmdi-comment-text'>Agregar</i></a></td>";
+            $cont.="</tr>";
+            }
+        }
+        else
+        {
+            $cont.="<tr>";
+            $cont.="<td> <i>No hay datos para mostrar</i></td>";
+            $cont.="<td> <i>No hay datos para mostrar</i></td>";
+            $cont.="<td> <i>No hay datos para mostrar</i></td>";
+            $cont.="<td> <i>No hay datos para mostrar</i></td>";
+            $cont.="<td> <i>No hay datos para mostrar</i></td>";
+            $cont.="</tr>";
+        }
+        $cont.="	</div>
+        </tbody>
+        </table>
+        </div>";
+        return $cont;
     }
+
+  
 
 
 
