@@ -77,7 +77,7 @@
 					</ul>
 				</li>
 				<li>
-					<a href="catalog.html">
+					<a href=" <?php echo SERVERURL; ?>addcali">
 						<i class="zmdi zmdi-book-image zmdi-hc-fw"></i> Reportes
 					</a>
 				</li>
