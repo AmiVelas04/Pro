@@ -1,6 +1,6 @@
 <?php
 $peticionajax=true;
-
+include "../core/configeneral.php";
 
 require_once "../Controladores/cursoControlador.php";
 require_once "../Controladores/calificacionControlador.php";

@@ -74,7 +74,31 @@
 										  	<label class="control-label">Dirección</label>
 										  	<textarea name="direccion-reg" class="form-control" rows="2" maxlength="100"></textarea>
 										</div>
-				    				</div>
+									</div>
+
+									<div class="col-xs-12 col-md-3 col-lg-offset-2">
+										<div class="form-group label-floating">
+										<?php require_once "./controladores/alumnoControlador.php";
+												$grad = new alumnoControlador();
+												$carr = new alumnoControlador();?>
+										  	<label class="control-label">Carrera</label>
+											  <select class="form-control" id="carr">
+											 <?php Echo $carr->mostrar_carrera_controlador();?>
+											  </select>
+										</div>
+									</div>
+
+									<div class="col-xs-12 col-md-3 col-lg-offset-2">
+										<div class="form-group label-floating">
+										  	<label class="control-label">Grado</label>
+										  	<select class="form-control" id="grad">
+												 
+												  <?php Echo $grad->mostrar_grado_controlador();?>
+												 
+											  </select>
+										</div>
+									</div>
+									
 				    			</div>
 				    		</div>
 						</fieldset>

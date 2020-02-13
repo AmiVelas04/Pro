@@ -6,7 +6,7 @@
 			$lista_blanca=["adminlist","adminsearch","admin","busqueda","catalogo",
 			"categorialista","categoria","catedraticobusca","catedraticolista","catedratico",
 			"catlista","cat","home","libroconfig","libroinfo","cursos",
-			"micuenta","misdatos","alumnolista","alumno","calificacion"];
+			"micuenta","misdatos","alumnolista","alumno","calificacion","addcali"];
 			if(in_array($vistas,$lista_blanca))
 				{
 					if(is_file("./Vistas/contenidos/" . $vistas . "-view.php")){

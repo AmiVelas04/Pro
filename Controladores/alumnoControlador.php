@@ -82,6 +82,42 @@ class alumnoControlador extends alumnoModelo
 
             }
    }
+
+   public function mostrar_grado_controlador(){
+    $sql=alumnoModelo::mostrar_grado_modelo();
+    $conte="";
+    $num=0;
+    if ($sql->rowcount()>=1)
+    {
+    $datos=$sql->fetchall();
+    $conte.="<option value='0'>Seleccione un Grado</option>";
+    foreach($datos as $row)
+    {
+        $num++;
+        $conte.="<option value='".$row['grado']."'>". $row['grado'] . "</option>";
+    }
+    }               
+    
+    return $conte;
+}
+
+public function mostrar_carrera_controlador(){
+    $sql=alumnoModelo::mostrar_carrera_modelo();
+    $cont="";
+    $num=0;
+    if ($sql->rowcount()>=1)
+    {
+    $datos=$sql->fetchall();
+    $cont.="<option value='0'>Seleccione una Carrera</option>";
+    foreach($datos as $row)
+    {
+        $num++;
+    $cont.="<option value='".$row['id']."'>". $row['carrera'] . "</option>";
+    }
+    }               
+    
+    return $cont;
+}
 }
 
 

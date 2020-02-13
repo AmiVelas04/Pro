@@ -116,4 +116,19 @@ protected function codigo_encargado($encargado){
 	return $id;
 }
 
+protected function mostrar_carrera_modelo()
+{
+	$consul="Select id_carr as id, carrera from carrera";
+	$sql=modeloMain::ejecutar_consulta_simple($consul);
+
+	return $sql;
+}
+
+protected function mostrar_grado_modelo()
+{
+	$consul="Select id_grado as id, grado from grado";
+	$sql=modeloMain::ejecutar_consulta_simple($consul);
+	return $sql;
+}
+
 }

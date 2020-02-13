@@ -111,7 +111,7 @@ class calificacionControlador extends calificacionModelo{
             $cont.="<td> <i>".$row['codigo']."</i></td>";
             $cont.="<td> <i class='zmdi zmdi-account'>".$row['nombre']."</i></td>";
             $cont.="<td> <i>".$row['edad']."</i></td>";
-            $cont.=" <td> <a class='btn btn-success '><i class='zmdi zmdi-plus'>Ingresar</i></a></td>";
+            $cont.=" <td> <a class='btn btn-success' href='".SERVERURL."addcali'><i class='zmdi zmdi-plus'>Ingresar</i></a></td>";
             $cont.="  <td> <a class='btn btn-info'><i class='zmdi zmdi-comment-text'>Agregar</i></a></td>";
             $cont.="</tr>";
             }

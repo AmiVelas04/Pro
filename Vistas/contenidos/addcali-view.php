@@ -1,26 +1,23 @@
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i> CATALOGO</h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-book-image zmdi-hc-fw"></i> INGRESO DE CALIFICACIONES</h1>
 			</div>
-			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+			<p class="lead">Seleccione el Bimestre Para poder ingresar la calificacion</p>
 		</div>
 		<div class="container-fluid text-center">
 			<div class="btn-group">
-              <a href="javascript:void(0)" class="btn btn-default btn-raised">SELECCIONE UNA CATEORÍA</a>
-              <a href="javascript:void(0)" data-target="dropdown-menu" class="btn btn-default btn-raised dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#!">Categoría 1</a></li>
-                <li><a href="#!">Categoría 2</a></li>
-                <li><a href="#!">Categoría 3</a></li>
-                <li><a href="#!">Categoría 4</a></li>
-                <li><a href="#!">Categoría 5</a></li>
-                <li><a href="#!">Categoría 6</a></li>
-                <li><a href="#!">Categoría 7</a></li>
-              </ul>
+			<select class="form-control" id="bim" name="bim" onchange="" >
+		<option value="0" >Seleccione un periodo</option>
+		<option value="1" >Bimestre 1</option>
+		<option value="2" >Bimestre 2</option>
+		<option value="3" >Bimestre 3</option>
+		<option value="4" >Bimestre 4</option>
+		<option value="5" >Recuperacion</option>
+	    </select>
             </div>
 		</div>
 		<div class="container-fluid">
-			<h2 class="text-titles text-center">Categoría seleccionada</h2>
+			<h2 class="text-titles text-center">Ingresar datos de la calificacion</h2>
 			<div class="row">
 				<div class="col-xs-12">
 					<div class="list-group">
@@ -29,45 +26,84 @@
 								<img class="circle" src="<?php echo SERVERURL;?>vistas/assets/book/book-default.png" alt="icon">
 							</div>
 							<div class="row-content">
-								<h4 class="list-group-item-heading">1 - Título completo del libro</h4>
-								<p class="list-group-item-text">
-									<strong>Autor: </strong>Nombre Autor del libro <br>
-									<a href="book-info.html" class="btn btn-primary" title="Más información"><i class="zmdi zmdi-info"></i></a>
-									<a href="#!" class="btn btn-primary" title="Ver PDF"><i class="zmdi zmdi-file"></i></a>
-									<a href="#!" class="btn btn-primary" title="Descargar PDF"><i class="zmdi zmdi-cloud-download"></i></a>
-									<a href="book-config.html" class="btn btn-primary" title="Gestionar libro"><i class="zmdi zmdi-wrench"></i></a>
-								</p>
+								<h4 class="list-group-item-heading">Nombre del Alumno</h4>
+								<strong>Curso: </strong>Nombre del curso <br>
 							</div>
+
+								<form>
+
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Tarea 1</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="t1" required="" maxlength="2">
+								</p>
+								</div>
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Tarea 2</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="t2" required="" maxlength="2">
+								</p>
+								</div>
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Tarea 3</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="t3" required="" maxlength="2">
+								</p>
+								</div>		
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Parcial 1</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="p1" required="" maxlength="2">
+								</p>
+								</div>
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Parcial 2</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="p2" required="" maxlength="2">
+								</p>
+								</div>
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Examen</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="x1" required="" maxlength="2">
+								</p>
+								</div>
+								<div class="col-md-1">
+								<p class="list-group-item-text">
+								
+									<label><strong>Nota</strong></label>
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="not" required="" maxlength="2" disabled="true">
+								</p>
+								</div>
+								<div class="col-md-2">
+								<p class="list-group-item-text">
+								
+									<label><strong>Limpiar</strong></label>
+									<button  class="btn btn-warning" type="submit" name="limp"><i class="zmdi zmdi-undo"></i></button>
+								</p>
+								</div>
+								<div class="col-md-2">
+								<p class="list-group-item-text">
+								
+									<label><strong>Guardar</strong></label>
+									<button class="btn btn-success" type="submit" name="guard" ><i class="zmdi zmdi-check"></i></button>
+								</p>
+								</div>
+							
+							</form>
+						</div>
 						</div>
 						<div class="list-group-separator"></div>
-						<div class="list-group-item">
-							<div class="row-picture">
-								<img src="<?php echo SERVERURL;?>vistas/assets/book/book-cover.jpg" alt="icon">
-							</div>
-							<div class="row-content">
-								<h4 class="list-group-item-heading">2 - Título completo del libro</h4>
-								<p class="list-group-item-text">
-									<strong>Autor: </strong>Nombre Autor del libro <br>
-									<a href="book-info.html" class="btn btn-primary" title="Más información"><i class="zmdi zmdi-info"></i></a>
-									<a href="#!" class="btn btn-primary" title="Ver PDF"><i class="zmdi zmdi-file"></i></a>
-									<a href="#!" class="btn btn-primary" title="Descargar PDF"><i class="zmdi zmdi-cloud-download"></i></a>
-									<a href="book-config.html" class="btn btn-primary" title="Gestionar libro"><i class="zmdi zmdi-wrench"></i></a>
-								</p>
-							</div>
-						</div>
+						
 						<div class="list-group-separator"></div>
 					</div>
-					<nav class="text-center">
-						<ul class="pagination pagination-sm">
-							<li class="disabled"><a href="javascript:void(0)">«</a></li>
-							<li class="active"><a href="javascript:void(0)">1</a></li>
-							<li><a href="javascript:void(0)">2</a></li>
-							<li><a href="javascript:void(0)">3</a></li>
-							<li><a href="javascript:void(0)">4</a></li>
-							<li><a href="javascript:void(0)">5</a></li>
-							<li><a href="javascript:void(0)">»</a></li>
-						</ul>
-					</nav>
+				
 				</div>
 			</div>
 		</div>
