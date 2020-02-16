@@ -42,7 +42,7 @@ class cursoControlador extends cursoModelo
         foreach($datos as $row)
         {
             $num++;
-        $cont.="<option value='".$num."'>". $row['carrera'] . "</option>";
+        $cont.="<option value='".$row['id']."'>". $row['carrera'] . "</option>";
         }
         }               
         
@@ -61,7 +61,7 @@ class cursoControlador extends cursoModelo
         foreach($datos as $row)
         {
             $num++;
-        $cont.="<option value='".$num."'>". $row['nombre'] . "</option>";
+        $cont.="<option value='".$row['id']."'>". $row['nombre'] . "</option>";
         }
         }               
         return $cont;
@@ -78,7 +78,7 @@ class cursoControlador extends cursoModelo
         $datos=$sql->fetchAll();
             foreach($datos as $row)
             {
-                $cont.="<option value='".$row['id_curso']."'>". $row['nombre'] . "</option>";
+                $cont.="<option value='".$row['id']."'>". $row['nombre'] . "</option>";
             }
        return $cont;
 

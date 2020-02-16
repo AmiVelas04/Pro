@@ -3,11 +3,13 @@
 if($peticionajax) {
 
 require_once "../Modelos/alumnoModelo.php";
+require_once "../vistas/modulos/script.php";
 	
 }
 else
 {
 require_once "./Modelos/alumnoModelo.php";
+require_once "./vistas/modulos/script.php";
 
 }
 //controlador para agregar alumno
@@ -22,6 +24,8 @@ class alumnoControlador extends alumnoModelo
 		$telefono=modeloMain::limpiar_cadena($_POST['telefono-reg']);
         $edad=modeloMain::limpiar_cadena($_POST['edad-reg']);
         $dpi=modeloMain::limpiar_cadena($_POST['dpi-reg']);
+        $grado=modeloMain::limpiar_cadena($_POST['grad']);
+        $carrera=modeloMain::limpiar_cadena($_POST['carr']);
 
 	
   
@@ -29,11 +33,10 @@ class alumnoControlador extends alumnoModelo
             $consulta1=modeloMain::ejecutar_consulta_simple("select * from alumno where cod_al=$cod");
 			if ($consulta1->rowcount()>=1) 
 			{
-				echo "El alumno ya ha sido registrado";
+				$alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"El alumno ya se encuentra resitrado","tipo"=>"error"];	
             } 
             else
             {
-                
                 $datosal=[
                     'codigo'=>$cod,
                     'nombre'=>$nombre,
@@ -47,14 +50,14 @@ class alumnoControlador extends alumnoModelo
                     'dpi'=>$dpi
                           ];
                           $res2=alumnoModelo::agregar_encargado_modelo($datosenc);
+                          
                           if ($res2->rowCount()>=1)
                           {
                               $id=alumnoModelo::codigo_encargado($responsable);
                               $alenc=alumnoModelo::Asignar_alumno_encargado($cod,$id);
                             if($alenc->rowCount()>=1)
                             {
-                                echo "Asignacion de alumno encargado correcta";
-                            }
+                               
                             $datostel=[
                                 'telefono'=>$telefono
                             ];
@@ -64,23 +67,48 @@ class alumnoControlador extends alumnoModelo
                                 $idenc=alumnoModelo::codigo_encargado($responsable);
                                 $idtel=alumnoModelo::codigo_telefono($telefono);
                                 $res4=alumnoModelo::asignar_telefono_encargado($idenc,$idtel);
-                                if ($res->rowCount()>=1)
+                                if ($res4->rowCount()>=1)
                                 {
-                                    echo "Datos Almacenados Correctamente";
+                                   $res5=alumnoModelo::asigna_alu_carr_grad($cod,$carrera,$grado);
+                                   if ($res5->rowCount()>=1)
+                                   {
+                                    $alerta=["Alerta"=>"limpiar","titulo"=>"Alumno Registrado con exito","texto"=>"El alumo se registró con exito","tipo"=>"success"];	
+                                   }
+                                   else
+                                   {
+                                    $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"Error al asignar carrera y grado al alumno","tipo"=>"error"];	
+                                    echo "cod: " . $cod . "<br>" . "id carrera: " . $carrera . "<br>" . "grado: " . $grado . "<br>" ;
+                                   }
                                 }
                                 else
                                 {
-                                    echo "Error en la asignacion de datos";  
+                                    $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar carrera y grado al alumno","tipo"=>"error"];	
                                 }
-
-
-                            
+                            }
+                            else
+                            {
+                                $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar el telefono","tipo"=>"error"];	
                             }
                                 
+                        }
+                            else
+                            {
+                                $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar al encargado","tipo"=>"error"];	
                             }
+                        
+                        }
+                        else
+                        {
+                            $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar al encargado","tipo"=>"error"];	
+                        }
                 }
+                else
+                {                                    $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo agregar al alumno","tipo"=>"error"];	}
 
             }
+
+            return alumnoModelo::Sweet_alert($alerta);
+            
    }
 
    public function mostrar_grado_controlador(){
@@ -94,7 +122,7 @@ class alumnoControlador extends alumnoModelo
     foreach($datos as $row)
     {
         $num++;
-        $conte.="<option value='".$row['grado']."'>". $row['grado'] . "</option>";
+        $conte.="<option value='".$row['id']."'>". $row['grado'] . "</option>";
     }
     }               
     
@@ -118,6 +146,9 @@ public function mostrar_carrera_controlador(){
     
     return $cont;
 }
+
+
+
 }
 
 

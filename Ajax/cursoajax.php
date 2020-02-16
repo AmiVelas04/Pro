@@ -33,7 +33,7 @@ if (isset($_POST['carrera']) && isset($_POST['grado']) && !isset($_POST['curso']
     $lib = new cursoControlador();
 
 $cont="";
-$cont.=" <select class='form-control' 'id='cur'>" . $_POST['carrera'] . "-" . $_POST['grado'];
+$cont.=" <select class='form-control' id='cur' name='cur'>" . $_POST['carrera'] . "-" . $_POST['grado'];
 $cont.=$lib->mostrar_curso($_POST['carrera'],$_POST['grado']);
 echo $cont . "</select>";
 } 

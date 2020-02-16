@@ -131,4 +131,20 @@ protected function mostrar_grado_modelo()
 	return $sql;
 }
 
+protected function asigna_alu_carr_grad($idal,$idcarr,$idgrad)
+{
+	$sql=modeloMain::conectar()->prepare("Insert into asigna_alum(cod_al,id_carr,id_grado) values(:al,:carr,:grad)");
+	$sql->bindparam(":al",$idal);
+	$sql->bindparam(":carr",$idcarr);
+	$sql->bindparam(":grad",$idgrad);
+		try{
+	$sql->execute();
+	return $sql;
+}
+catch (PDOException $e)
+{
+	
+}
+}
+
 }

@@ -27,7 +27,7 @@
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; DATOS DE LA ASIGNACION</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="save" action="<?php echo SERVERURL;?>ajax/administradorAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data">
+					<form data-form="save" action="<?php echo SERVERURL;?>ajax/asignacionAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data">
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment"></i> &nbsp; Datos básicos</legend>
 				    		<div class="container-fluid">
@@ -70,7 +70,7 @@
 									<div class="btn-group">
 									
 									<div>
-             <select class="form-control" id="cat">
+             <select class="form-control" id="cat" name ="cat">
 			   <?php echo $carr->mostrar_catedratico(); ?>
 			</select>
 		

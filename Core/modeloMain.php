@@ -162,7 +162,7 @@ class modeloMain{
   			confirmButtontext: 'Aceptar'
 			}).then(function(){
 				location.reload();
-				})
+				});
 
 			</script>
 
@@ -170,19 +170,18 @@ class modeloMain{
 		}
 		elseif ($datos['Alerta']=='limpiar') 
 		{
-			$alerta="
+			$alerta='
 			<script>
 			swal({ 
-  			title: '" .$datos['titulo']."',
-  			text:'" . $datos['texto'] . "',
-  			type:'".$datos['tipo']. "',
-  			confirmButtontext: 'Aceptar'
+  			title: "' .$datos["titulo"].'",
+  			text:"' . $datos["texto"] . '",
+  			type:"'.$datos["tipo"]. '",
+  			confirmButtontext: "Aceptar"
 			}).then(function(){
-				$('.FormularioAjax')[0].reset();
-				})
-
+				$("#FormularioAjax")[0].reset();
+				});
 			</script>
-			";
+			';
 		}
 		return $alerta;
 	}

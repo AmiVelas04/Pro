@@ -39,7 +39,7 @@ try{
     }
     protected function mostrar_grado_modelo()
     {
-        $consul="Select grado from grado";
+        $consul="Select id_grado as id,grado from grado";
         $sql=modeloMain::ejecutar_consulta_simple($consul);
 
         return $sql;
@@ -47,21 +47,21 @@ try{
 
     protected function mostrar_carrera_modelo()
     {
-        $consul="Select carrera from carrera";
+        $consul="Select id_carr as id,carrera from carrera";
         $sql=modeloMain::ejecutar_consulta_simple($consul);
 
         return $sql;
     }
     protected function mostrar_catedratico_modelo()
     {
-        $consul="Select nombre from catedratico";
+        $consul="Select id_cat as id, nombre from catedratico";
         $sql=modeloMain::ejecutar_consulta_simple($consul);
         return $sql;
     }
 
     protected function mostrar_curso_modelo($car,$grad)
     {
-        $consul="Select id_curso,nombre from curso where id_carr=". $car . " and id_grado=". $grad;
+        $consul="Select id_curso as id,nombre from curso where id_carr=". $car . " and id_grado=". $grad;
         $sql=modeloMain::ejecutar_consulta_simple($consul);
         return $sql;
 

@@ -74,24 +74,26 @@
 									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="x1" required="" maxlength="2">
 								</p>
 								</div>
-								<div class="col-md-1">
+								<div class="col-md-2 text-center">
 								<p class="list-group-item-text">
 								
 									<label><strong>Nota</strong></label>
 									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="not" required="" maxlength="2" disabled="true">
 								</p>
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-1 text-center">
 								<p class="list-group-item-text">
 								
 									<label><strong>Limpiar</strong></label>
-									<button  class="btn btn-warning" type="submit" name="limp"><i class="zmdi zmdi-undo"></i></button>
+									<br>
+									<a  class="btn btn-warning" type="submit" name="limp"><i class="zmdi zmdi-undo"></i></a>
 								</p>
 								</div>
-								<div class="col-md-2">
+								<div class="col-md-1 text-center">
 								<p class="list-group-item-text">
 								
 									<label><strong>Guardar</strong></label>
+									<br>
 									<button class="btn btn-success" type="submit" name="guard" ><i class="zmdi zmdi-check"></i></button>
 								</p>
 								</div>

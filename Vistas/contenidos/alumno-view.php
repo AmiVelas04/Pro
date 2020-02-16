@@ -27,7 +27,7 @@
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ALUMNO</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="save" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
+					<form data-form="Guradar" name="formalumn" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment-o"></i> &nbsp; Información del Alumno</legend>
 				    		<div class="container-fluid">
@@ -82,7 +82,7 @@
 												$grad = new alumnoControlador();
 												$carr = new alumnoControlador();?>
 										  	<label class="control-label">Carrera</label>
-											  <select class="form-control" id="carr">
+											  <select class="form-control" id="carr" name="carr">
 											 <?php Echo $carr->mostrar_carrera_controlador();?>
 											  </select>
 										</div>
@@ -91,7 +91,7 @@
 									<div class="col-xs-12 col-md-3 col-lg-offset-2">
 										<div class="form-group label-floating">
 										  	<label class="control-label">Grado</label>
-										  	<select class="form-control" id="grad">
+										  	<select class="form-control" id="grad" name= "grad">
 												 
 												  <?php Echo $grad->mostrar_grado_controlador();?>
 												 

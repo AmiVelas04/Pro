@@ -49,13 +49,14 @@ function  alumnos(usu){
 }
 
 
-
+//Muestra los cursos de las carreras en la asignacion
 function recargarlista(){
     $.ajax({
     type:"POST",
     url: "ajax/cursoajax.php",
     data:{carrera:  $('#carrera').val(),grado:  $('#grado').val()},
     success: function(r){
+alert(r);
         $('#curso').html(r);
     }
     });
@@ -86,6 +87,7 @@ function buscar_cur(usu){
         success:function(h){
          
 $('#mostracurso').html(h);
+alert(h);
         }
        });
 }
@@ -101,6 +103,7 @@ function buscar_alu(usu){
         }
     });
 }
+
 
 
 
