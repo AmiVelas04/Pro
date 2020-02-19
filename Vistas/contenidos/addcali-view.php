@@ -25,9 +25,25 @@
 							<div class="row-picture">
 								<img class="circle" src="<?php echo SERVERURL;?>vistas/assets/book/book-default.png" alt="icon">
 							</div>
+							<?php 
+							require_once "./Controladores/alumnoControlador.php";
+							
+							if(isset($_GET["views"])){
+								$ruta=explode("/",$_GET['views']);
+							$alu=$ruta[1];
+							$cu=$ruta[2];
+						
+							}
+							else	
+							{
+								echo "No esta definida";
+							}
+							$al=new alumnoControlador();
+							?>
 							<div class="row-content">
-								<h4 class="list-group-item-heading">Nombre del Alumno</h4>
-								<strong>Curso: </strong>Nombre del curso <br>
+								<h4 class="list-group-item-heading">Nombre del Alumno: <strong><?php echo $al->mostrar_alumno($alu);?></strong> </h4>
+								<h5 class="list-group-item-heading">Curso: <strong> <?php echo $al->mostrar_curso($cu);?> </strong> <br> </h5>
+								
 							</div>
 
 								<form>

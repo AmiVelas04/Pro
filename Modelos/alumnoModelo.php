@@ -29,6 +29,7 @@ try{
 	}
 	catch (PDOException $e)
 	{
+		echo "El error al agregar al alumno es: " .$e;
 	}
 		
 		
@@ -49,6 +50,7 @@ try{
 	}
 	catch (PDOException $e)
 	{
+		echo "El error al agregar al encargado  es: " .$e;
 	}
 	
 }
@@ -63,6 +65,7 @@ protected function agregar_telefono_modelo($datos){
 }
 catch (PDOException $e)
 {
+	echo "El error al agregar al telefono es: " .$e;
 }
 
 
@@ -80,6 +83,7 @@ protected function Asignar_telefono_encargado($enc,$tel)
 }
 catch (PDOException $e)
 {
+	echo "El error al asignar telefono es: " .$e;
 }
 }
 protected function Asignar_alumno_encargado($idal,$idenc)
@@ -94,6 +98,7 @@ protected function Asignar_alumno_encargado($idal,$idenc)
 }
 catch (PDOException $e)
 {
+	echo "El error al agregar al alumno es: " .$e;
 }
 }
 
@@ -137,12 +142,94 @@ protected function asigna_alu_carr_grad($idal,$idcarr,$idgrad)
 	$sql->bindparam(":al",$idal);
 	$sql->bindparam(":carr",$idcarr);
 	$sql->bindparam(":grad",$idgrad);
-		try{
+	try{
 	$sql->execute();
+	// linea opcional para probar funcionalidad del ingreso del alumno
+	//return $sql;
+	// intento de crea calificaciones de cada curso para el alumno ya asignado
+	if($sql->rowCount()>=1)
+	{
+		echo "asignacion de alumno correcta: ". $sql->rowCount();
+		if (self::iniciar_calificacion_curso($idal,$idcarr,$idgrad))
+		{
+		return $sql;
+		}
+		else
+		{
+		echo "error al generar una nueva calificacion";
+		}
+	}
+	else
+	{
+		echo "Error en asignacion de alumno";	
+	}
+}
+	catch (PDOException $e)
+	{
+	echo $e;
+	}
+}
+
+
+protected function mostrar_alumno_modelo($id)
+{
+$consul="select nombre from alumno where cod_al='" . $id ."'";
+
+$sql=modeloMain::ejecutar_consulta_simple($consul);
+
+return $sql;
+}
+
+protected function mostrar_curso_modelo($id)
+{
+	$consul="select nombre from curso where id_curso=".$id;
+	$sql=modeloMain::ejecutar_consulta_simple($consul);
 	return $sql;
 }
-catch (PDOException $e)
+protected function iniciar_calificacion_curso($alumno,$carrera,$grado)
 {
+$buscacur_query="SELECT id_curso as id fROM curso WHERE id_carr=".$carrera." AND id_grado=" . $grado;
+Echo "la consulta es: " . "<br>" . $buscacur_query;
+$sql1=modeloMain::ejecutar_consulta_simple($buscacur_query);
+$datos1=$sql1->fetchAll();
+foreach ($datos1 as $row) {
+	$inscali=modeloMain::conectar()->prepare("insert into calificacion(id_curso,cod_al) values(:curso,:alumno)");
+	$inscali->bindParam(":curso",$row['id']);
+	$inscali->bindParam(":alumno",$alumno);
+	$inscali->execute();
+	if ($inscali->rowcount()>=1) {
+	
+
+		$buscacali_query="Select id_cali as id from calificacion where id_curso=".$row['id']." and cod_al='" . $alumno . "'";
+		$sqlcali=modeloMain::ejecutar_consulta_simple($buscacali_query);
+		
+		if ($sqlcali->rowCount()>=1)
+		{
+			$c=0;
+			$total2=$sqlcali->rowCount();
+			$datos2=$sqlcali->fetchall();
+			foreach ($datos2 as $fila) {
+				for ($i=1; $i <=5 ; $i++) { 
+				$ins_detalle_cali=modeloMain::conectar()->prepare("insert into detalle_cali(id_cali,id_peri) values(:calificacion,:periodo)");
+				$ins_detalle_cali->bindParam(":calificacion",$fila['id']);
+				$ins_detalle_cali->bindParam(":periodo",$i);
+				$ins_detalle_cali->execute();
+				
+				}
+				$c++;
+			}
+			if ($c>=$total2)
+			{
+				return true;
+			}
+
+		}
+		else{
+			return false;
+		}
+	} else {
+		return false;
+	}
 	
 }
 }

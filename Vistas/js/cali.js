@@ -1,4 +1,5 @@
-function mostrar_cali()
+function mostrar_cali(usu,cur,cod)
 {
+    
     
 }

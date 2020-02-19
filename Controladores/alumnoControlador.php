@@ -31,54 +31,57 @@ class alumnoControlador extends alumnoModelo
   
 
             $consulta1=modeloMain::ejecutar_consulta_simple("select * from alumno where cod_al=$cod");
-			if ($consulta1->rowcount()>=1) 
+			if ($consulta1->rowCount()>=1) 
 			{
 				$alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"El alumno ya se encuentra resitrado","tipo"=>"error"];	
             } 
             else
             {
                 $datosal=[
-                    'codigo'=>$cod,
-                    'nombre'=>$nombre,
-                    'edad'=>$edad
+                'codigo'=>$cod,
+                'nombre'=>$nombre,
+                'edad'=>$edad
                 ];
                 $res=alumnoModelo::agregar_alumno_modelo($datosal);
                 if ($res->rowCount()>=1)
                 {
-                $datosenc=[
+                   
+                    $datosenc=[
                     'nombre'=>$responsable,
                     'dpi'=>$dpi
-                          ];
-                          $res2=alumnoModelo::agregar_encargado_modelo($datosenc);
-                          
-                          if ($res2->rowCount()>=1)
-                          {
-                              $id=alumnoModelo::codigo_encargado($responsable);
-                              $alenc=alumnoModelo::Asignar_alumno_encargado($cod,$id);
-                            if($alenc->rowCount()>=1)
-                            {
-                               
+                    ];
+                    $res2=alumnoModelo::agregar_encargado_modelo($datosenc);
+                    if ($res2->rowCount()>=1)
+                    {
+                       
+                        $id=alumnoModelo::codigo_encargado($responsable);
+                        $alenc=alumnoModelo::Asignar_alumno_encargado($cod,$id);
+                        if($alenc->rowCount()>=1)
+                        {
                             $datostel=[
-                                'telefono'=>$telefono
+                            'telefono'=>$telefono
                             ];
                             $res3=alumnoModelo::agregar_telefono_modelo($datostel);
                             if ($res3->rowCount()>=1 )
                             {
+                               
                                 $idenc=alumnoModelo::codigo_encargado($responsable);
                                 $idtel=alumnoModelo::codigo_telefono($telefono);
                                 $res4=alumnoModelo::asignar_telefono_encargado($idenc,$idtel);
                                 if ($res4->rowCount()>=1)
                                 {
-                                   $res5=alumnoModelo::asigna_alu_carr_grad($cod,$carrera,$grado);
-                                   if ($res5->rowCount()>=1)
-                                   {
-                                    $alerta=["Alerta"=>"limpiar","titulo"=>"Alumno Registrado con exito","texto"=>"El alumo se registró con exito","tipo"=>"success"];	
-                                   }
-                                   else
-                                   {
-                                    $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"Error al asignar carrera y grado al alumno","tipo"=>"error"];	
-                                    echo "cod: " . $cod . "<br>" . "id carrera: " . $carrera . "<br>" . "grado: " . $grado . "<br>" ;
-                                   }
+                                  
+                                    $res5=alumnoModelo::asigna_alu_carr_grad($cod,$carrera,$grado);
+                                    if ($res5->rowCount()>=1)
+                                    {
+                                        $alerta=["Alerta"=>"limpiar","titulo"=>"Alumno Registrado con exito","texto"=>"El alumo se registró con exito","tipo"=>"success"];	
+                                        
+                                    }
+                                    else
+                                    {
+                                        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"Error al asignar carrera y grado al alumno","tipo"=>"error"];	
+                                        echo "cod: " . $cod . "<br>" . "id carrera: " . $carrera . "<br>" . "grado: " . $grado . "<br>" ;
+                                    }
                                 }
                                 else
                                 {
@@ -89,21 +92,21 @@ class alumnoControlador extends alumnoModelo
                             {
                                 $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar el telefono","tipo"=>"error"];	
                             }
-                                
-                        }
-                            else
-                            {
-                                $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar al encargado","tipo"=>"error"];	
-                            }
-                        
                         }
                         else
                         {
                             $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar al encargado","tipo"=>"error"];	
                         }
+                    }
+                    else
+                    {
+                        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar al encargado","tipo"=>"error"];	
+                    }
                 }
                 else
-                {                                    $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo agregar al alumno","tipo"=>"error"];	}
+                {
+                        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo agregar al alumno","tipo"=>"error"];
+            	}
 
             }
 
@@ -145,6 +148,46 @@ public function mostrar_carrera_controlador(){
     }               
     
     return $cont;
+}
+
+public function mostrar_alumno($id)
+{
+$sql=alumnoModelo::mostrar_alumno_modelo($id);
+$cont="";
+if($sql->rowCount()>=1){
+$datos=$sql->fetchAll();
+
+foreach ($datos as $row ) {
+$cont.=$row['nombre'];
+
+}
+return $cont;
+}
+else
+{
+return $cont;
+
+}
+}
+
+public function mostrar_curso($curso)
+{
+    $sql=alumnoModelo::mostrar_curso_modelo($curso);
+    $cont="";
+    if($sql->rowCount()>=1)
+    {
+        $datos=$sql->fetchAll();
+        foreach ($datos as $row)
+        {
+        $cont.=$row['nombre'];
+        }
+        return $cont;
+
+    }
+    else
+    {
+        return $cont;
+    }
 }
 
 

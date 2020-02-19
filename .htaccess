@@ -2,3 +2,6 @@ Options All -Indexes
 
 RewriteEngine On
 RewriteRule ^([a-zA-Z0-9/]+)$ index.php?views=$1
+RewriteRule ^addcali/?usu=$2 /addcali/
+
+

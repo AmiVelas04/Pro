@@ -19,6 +19,13 @@ recargarlista();
     }
 
 }
+$(document).ready(function(){
+        $('#ingresarcali').on('clik',function (e){
+            e.preventDefault();
+                alert('hola pues'); 
+        })
+})
+
 
 function  mostrar_grad(usu){
     
@@ -87,7 +94,7 @@ function buscar_cur(usu){
         success:function(h){
          
 $('#mostracurso').html(h);
-alert(h);
+
         }
        });
 }
@@ -100,6 +107,9 @@ function buscar_alu(usu){
         success: function(r){
             
             $('#alumn').html(r);
+            $('.esstado').on('clik',function (e){
+                e.preventDefault();
+                    alert('hola pues')});
         }
     });
 }
