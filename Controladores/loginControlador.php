@@ -64,7 +64,8 @@ class loginControlador extends loginModelo
 			 	{
 			 	$url=SERVERURL."admin";
 			 		
-			 	}
+				 }
+				 echo $usuario;
 
 			 	return $urllocation='<script>window.location="'.$url .  '" </script>';
 

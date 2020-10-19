@@ -1,7 +1,7 @@
 <?php 
-const server="localhost";
-const usuario="prueba";
-const contra="1532";
+const server="192.168.2.120";
+const usuario="PYC";
+const contra="P&C_Sis_2018";
 const bd="colegio";
 
 const sgbd="mysql:host=". server . "; dbname=" . bd;
