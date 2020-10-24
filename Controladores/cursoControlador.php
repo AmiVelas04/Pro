@@ -92,13 +92,14 @@ class cursoControlador extends cursoModelo
             'carrera'=>$carr,
             'grado'=>$grad
         ];
+        
     $curso=cursoModelo::agregar_curso_modelo($datoscur);
     if ($curso->rowCount()>=1) {
     echo "Curso Agregado";
 
     } else
      {
-       echo "Error al agregar curso";
+      echo  "Error al agregar curso";
     }
     
     }

@@ -1,7 +1,6 @@
 <?php
 $peticionajax=true;
 include "../core/configeneral.php";
-
 require_once "../Controladores/cursoControlador.php";
 require_once "../Controladores/calificacionControlador.php";
 
@@ -29,19 +28,20 @@ if (isset($_POST['carr']) && isset($_POST['usuario'])) {
 
 
 //Muestra todos los cursos 
-if (isset($_POST['carrera']) && isset($_POST['grado']) && !isset($_POST['curso'])) {
+if (isset($_POST['carr']) && isset($_POST['grad']) && !isset($_POST['curso'])) {
     $lib = new cursoControlador();
 
 $cont="";
 $cont.=" <select class='form-control' id='cur' name='cur'>" . $_POST['carrera'] . "-" . $_POST['grado'];
-$cont.=$lib->mostrar_curso($_POST['carrera'],$_POST['grado']);
+$cont.=$lib->mostrar_curso($_POST['carr'],$_POST['grad']);
 echo $cont . "</select>";
 } 
-elseif(isset($_POST['carrera']) && isset($_POST['grado']) && isset($_POST['curso'])) 
+elseif(isset($_POST['carr']) && isset($_POST['grad']) && isset($_POST['curso'])) 
 {
+    
     $ingre= new cursoControlador();
    
-   echo $ingre->agregar_curso_controlador($_POST['curso'],$_POST['carrera'],$_POST['grado']);
+   echo $ingre->agregar_curso_controlador($_POST['curso'],$_POST['carr'],$_POST['grad']);
    
 }
 

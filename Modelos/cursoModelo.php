@@ -20,28 +20,23 @@ class cursoModelo extends modeloMain
         $sql->bindparam(":id",$id);
 		$sql->bindparam(":nombre",$datos['curso']);
 		$sql->bindparam(":carrera",$datos['carrera']);
-		$sql->bindparam(":grado",$datos['grado']);
-		
-try{
-  
+        $sql->bindparam(":grado",$datos['grado']);
+        
+    try{
         $sql->execute();
         echo $sql->errorInfo();
 		return $sql;
 	}
 	catch (PDOException $e){
 	
-        
-
+        echo $e;
 	}
 		
-		
-
     }
     protected function mostrar_grado_modelo()
     {
         $consul="Select id_grado as id,grado from grado";
         $sql=modeloMain::ejecutar_consulta_simple($consul);
-
         return $sql;
     }
 
@@ -73,7 +68,6 @@ try{
         $sql->fetchAll();
         foreach ($sql as $row) {
         $id=$row['id_carr'];
-
         }
         return $id;
 
@@ -86,7 +80,6 @@ try{
         $sql->fetchAll();
         foreach ($sql as $row) {
         $id=$row['id_carr'];
-
         }
         return $id;
 
@@ -99,7 +92,6 @@ try{
         $total=$sql->rowCount();
         $total+=1;
         return $total;
-
     }
 
     

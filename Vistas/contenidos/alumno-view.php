@@ -29,7 +29,7 @@
 				<div class="panel-body">
 					<form data-form="Guradar" name="formalumn" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
 				    	<fieldset>
-				    		<legend><i class="zmdi zmdi-assignment-o"></i> &nbsp; Información del Alumno</legend>
+				    		<legend><i class="zmdi zmdi-assignment-o></i> &nbsp; Información del Alumno</legend>
 				    		<div class="container-fluid">
 				    			<div class="row">
 								<div class="col-xs-12 col-sm-6">

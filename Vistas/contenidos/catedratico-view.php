@@ -1,6 +1,6 @@
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Usuarios <small>CLIENTES</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> Usuarios <small>Usuarios</small></h1>
 			</div>
 			<p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
 		</div>
@@ -9,17 +9,17 @@
 			<ul class="breadcrumb breadcrumb-tabs">
 			  	<li>
 			  		<a href="client.html" class="btn btn-info">
-			  			<i class="zmdi zmdi-plus"></i> &nbsp; NUEVO CLIENTE
+			  			<i class="zmdi zmdi-plus"></i> &nbsp; NUEVO USUARIO
 			  		</a>
 			  	</li>
 			  	<li>
 			  		<a href="client-list.html" class="btn btn-success">
-			  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE CLIENTES
+			  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE USUARIO
 			  		</a>
 			  	</li>
 			  	<li>
 			  		<a href="client-search.html" class="btn btn-primary">
-			  			<i class="zmdi zmdi-search"></i> &nbsp; BUSCAR CLIENTE
+			  			<i class="zmdi zmdi-search"></i> &nbsp; BUSCAR USUSARIO
 			  		</a>
 			  	</li>
 			</ul>
@@ -29,12 +29,12 @@
 		<div class="container-fluid">
 			<div class="panel panel-info">
 				<div class="panel-heading">
-					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO CLIENTE</h3>
+					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO USUARIO</h3>
 				</div>
 				<div class="panel-body">
-					<form>
+					<form data-form="Guradar" name="formcat" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
 				    	<fieldset>
-				    		<legend><i class="zmdi zmdi-account-box"></i> &nbsp; Información personal</legend>
+				    		<legend><i class="zmdi zmdi-account-box></i> &nbsp; Información personal</legend>
 				    		<div class="container-fluid">
 				    			<div class="row">
 				    				<div class="col-xs-12">
