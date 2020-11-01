@@ -1,11 +1,12 @@
 <?php 
 if($peticionajax) {
 require_once "../Modelos/asignaModelos.php";
+require_once "../vistas/modulos/script.php";
 }
 else
 {
 require_once "./Modelos/asignaModelos.php";
-
+require_once "./vistas/modulos/script.php";
 }
 
 class asignaControlador extends asignaModelos
@@ -18,7 +19,7 @@ public function agregar_asignacion_controlador($cat,$cur)
  $consulta1=modeloMain::ejecutar_consulta_simple("select * from asigna_cur_cat where id_curso=$cur and id_cat=$cat");
     if ($consulta1->rowCount()>=1)
     {
-        echo "Ya se Realizo esta asignacion";
+        $alerta="1";
     }
     else
      {
@@ -30,14 +31,16 @@ public function agregar_asignacion_controlador($cat,$cur)
         
         if ($asigna->rowCount()>=1)
         {
-            return true;
+          $alerta="2";	
         }
         else
         {
-            return false;
+        
+            $alerta="3";	
         }
        
      }
+     return $alerta;
 }
 
 }

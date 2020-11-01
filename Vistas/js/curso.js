@@ -1,15 +1,15 @@
 
 function habilitar(value1,value2,value3,value4){
+   
     if (value1!="0" && value2!="0" && value3!="0" && value4!="0")
     {
         document.getElementById("save").disabled=false;
         if (value1!="0" && value2!="0")
         {
-recargarlista();
+           recargarlista();
         }
         else
         {
-
         }
     }
 
@@ -22,10 +22,23 @@ recargarlista();
 $(document).ready(function(){
         $('#ingresarcali').on('clik',function (e){
             e.preventDefault();
-                alert('hola pues'); 
+                
         })
 })
 
+
+function asginacursocat()
+{$.ajax({
+    type:"POST",
+    url: "ajax/cursoAjax.php",
+    data:{carrera:  $('#carrera').val(),grado:  $('#grado').val(),cate: $('#.cat').val(),cur: $('#cur').val()},
+    success:function(r){
+
+        ('#respuesta').html(r);
+    }
+
+});
+}
 
 function  mostrar_grad(usu){
     
@@ -51,7 +64,7 @@ function  alumnos(usu){
     buscar_alu(usu);
     }
     else{
-        alert ("no se ha escogido un valor correcto");
+       
     }
 }
 
@@ -63,7 +76,7 @@ function recargarlista(){
     url: "ajax/cursoajax.php",
     data:{carrera:  $('#carrera').val(),grado:  $('#grado').val()},
     success: function(r){
-alert(r);
+
         $('#curso').html(r);
     }
     });
@@ -107,11 +120,29 @@ function buscar_alu(usu){
         success: function(r){
             
             $('#alumn').html(r);
-            $('.esstado').on('clik',function (e){
+            $('.estado').on('clik',function (e){
                 e.preventDefault();
                     alert('hola pues')});
         }
     });
+}
+//envia datos hacia asigan ajax para ser asignados
+function asignacur(cat,cur)
+{
+$.ajax({
+type:"POST",
+url:"ajax/asignacionAjax.php",
+data:{cate:cat,cur:cur},
+success: function(l){
+    
+    $('#respuesta').html(l);
+    $('.save').on('click',function(e){
+        e.preventDefault();
+        alert(cat);
+    });
+}
+
+})
 }
 
 

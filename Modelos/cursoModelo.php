@@ -57,7 +57,8 @@ class cursoModelo extends modeloMain
     protected function mostrar_curso_modelo($car,$grad)
     {
         $consul="Select id_curso as id,nombre from curso where id_carr=". $car . " and id_grado=". $grad;
-        $sql=modeloMain::ejecutar_consulta_simple($consul);
+               $sql=modeloMain::ejecutar_consulta_simple($consul);
+
         return $sql;
 
     }

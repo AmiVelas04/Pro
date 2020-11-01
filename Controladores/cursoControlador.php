@@ -26,6 +26,7 @@ class cursoControlador extends cursoModelo
             $num++;
             $conte.="<option value='".$num."'>". $row['grado'] . "</option>";
         }
+
         }               
         
         return $conte;
@@ -70,7 +71,6 @@ class cursoControlador extends cursoModelo
 
     public function mostrar_curso($carr,$grad)
     {
-       
         $sql=cursoModelo::mostrar_curso_modelo($carr,$grad);
         $cont="";
         if ($sql->rowcount()>=1)

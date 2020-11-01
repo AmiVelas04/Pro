@@ -3,11 +3,11 @@
 if ($peticionajax) {
 
 require_once "../core/configAPP.php";
-
+require_once "../core/configeneral.php";
 }
 else
 {
-	
+	require_once "./core/configeneral.php";
 require_once "./core/configAPP.php";
 }
 class modeloMain{
@@ -146,7 +146,7 @@ class modeloMain{
 		{
 			$alerta='
 			<script>
-			swal("'. $datos["titulo"].'","'. $datos["texto"].'","'. $datos["tipo"].'");
+			swal.fire("'. $datos["titulo"].'","'. $datos["texto"].'","'. $datos["tipo"].'");
 			</script>
 			';
 			

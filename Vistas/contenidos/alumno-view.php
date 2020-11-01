@@ -1,22 +1,13 @@
 <div class="container-fluid">
 			<div class="page-header">
-			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Administración <small>Alumnos</small></h1>
+			  <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> Administración <small>iNGRESO DE ALUMNOS</small></h1>
 			</div>
 			<p class="lead"></p>
 		</div>
 
 		<div class="container-fluid">
 			<ul class="breadcrumb breadcrumb-tabs">
-			  	<li>
-			  		<a href="provider.html" class="btn btn-info">
-						  <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ALUMNO
-							  		</a>
-			  	</li>
-			  	<li>
-			  		<a href="provider-list.html" class="btn btn-success">
-			  			<i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE ALUMNOS
-			  		</a>
-			  	</li>
+			  	
 			</ul>
 		</div>
 

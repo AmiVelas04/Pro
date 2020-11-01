@@ -1,16 +1,29 @@
 <?php
+include "../vistas/js/sweetalert.js";
+
 $peticionajax=true;
 $carr=$_POST['carrera'];
 $grad=$_POST['grado'];
 $curso=$_POST['cur'];
-$cat=$_POST['cat'];
+if (!isset($_POST['cat']))
+{
+    $cat=$_POST['cate'];
+}
+if (!isset($_POST['cate']))
+{
+    $cat=$_POST['cat'];
+}
+
 
 require_once "../Controladores/asignaControlador.php";
 
 $asignacion= new asignaControlador();
 
+$resp=$asignacion->agregar_asignacion_controlador($cat,$curso);
 
-if ($asignacion->agregar_asignacion_controlador($cat,$curso)) 
-{
-    echo "Asignacion echa con etsito";
-}
+
+header("Location:".SERVERURL."cat?resp=".$resp . "");
+
+	
+
+

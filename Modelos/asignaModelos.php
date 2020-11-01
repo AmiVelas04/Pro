@@ -11,8 +11,8 @@ require_once "./core/modeloMain.php";
 class asignaModelos extends modeloMain{
     protected function agregar_asignacion_modelo($datos)
     {
-        $sql=modeloMain::conectar()->prepare("Insert into asigna_cur_cat( id_cur,id_cat) values (:curso,:cat)");
-        $sql->bindparam(":curso",$datos['cur']);
+        $sql=modeloMain::conectar()->prepare("Insert into asigna_cur_cat( id_curso,id_cat) values(:curso,:cat)");
+        $sql->bindparam(":curso",$datos['curso']);
         $sql->bindparam(":cat",$datos['cat']);
         try{
             $sql->execute();
@@ -20,8 +20,6 @@ class asignaModelos extends modeloMain{
         }
         catch (PDOException $e)
         {
-       
+      echo $e;
         }
-    }
-  
-}
+    }}

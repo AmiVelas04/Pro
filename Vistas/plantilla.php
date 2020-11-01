@@ -57,6 +57,7 @@ $vistasR=$vt->obtener_vistas_controlador();
 	
 	<script>
 		$.material.init();
+		
 	</script>	
 </body>
 </html>
