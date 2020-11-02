@@ -149,14 +149,14 @@ protected function asigna_alu_carr_grad($idal,$idcarr,$idgrad)
 	// intento de crea calificaciones de cada curso para el alumno ya asignado
 	if($sql->rowCount()>=1)
 	{
-		echo "asignacion de alumno correcta: ". $sql->rowCount();
+		
 		if (self::iniciar_calificacion_curso($idal,$idcarr,$idgrad))
 		{
 		return $sql;
 		}
 		else
 		{
-		echo "error al generar una nueva calificacion";
+		echo "error al generar una nueva calificacion idalumno: ". $idal . ", id carrera: " . $idcarr . " $idgrad";
 		}
 	}
 	else
@@ -164,10 +164,12 @@ protected function asigna_alu_carr_grad($idal,$idcarr,$idgrad)
 		echo "Error en asignacion de alumno";	
 	}
 }
-	catch (PDOException $e)
-	{
-	echo $e;
-	}
+catch(PDOException $e)
+{
+echo $e;
+
+}
+	
 }
 
 
@@ -189,7 +191,7 @@ protected function mostrar_curso_modelo($id)
 protected function iniciar_calificacion_curso($alumno,$carrera,$grado)
 {
 $buscacur_query="SELECT id_curso as id fROM curso WHERE id_carr=".$carrera." AND id_grado=" . $grado;
-Echo "la consulta es: " . "<br>" . $buscacur_query;
+
 $sql1=modeloMain::ejecutar_consulta_simple($buscacur_query);
 $datos1=$sql1->fetchAll();
 foreach ($datos1 as $row) {
@@ -232,6 +234,8 @@ foreach ($datos1 as $row) {
 	}
 	
 }
+
+
 }
 
 }

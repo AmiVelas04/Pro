@@ -18,7 +18,7 @@
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ALUMNO</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="Guradar" name="formalumn" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
+					<form data-form="save" name="FormularioAjax" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment-o></i> &nbsp; Información del Alumno</legend>
 				    		<div class="container-fluid">
@@ -117,3 +117,89 @@
 				</div>
 			</div>
 		</div>
+<?echo ?>
+		<script>
+		
+$('.FormularioAjax').submit(function(e)
+{
+	e.preventDefault();
+	var form=$(this);
+	var tipo = form.attr('data-form');
+	var accion = form.attr('action');
+	var metodo = form.attr('method');
+	var respuesta = form.children('.RespuestaAjax');
+	var MsjError=  swal('Ocurrio un error'); 
+	var formdata= new FormData(this);
+
+	var textoAlerta;
+	if (tipo==='save') 
+	{
+		textoAlerta="los datos seran almacenados" ;
+	}
+	else if(tipo==='delete')
+	{
+	textoAlerta="los datos seran eliminados";	
+	}
+	else if(tipo==='update')
+	{
+	textoAlerta="los datos se actualizaran";	
+	}
+	else
+	{
+	textoAlerta="Desear realizar esta operacion?";		
+	}
+
+	swal({
+
+		title:"¿Seguro?",
+		text:  textoAlerta,
+		type: "question",
+		showCancelButton:true,
+		confirmButtonText:"Aceptar",
+		cancelButtonText:"Cancelar"
+	}).then(function ()
+	{
+		$.ajax({
+			type: metodo,
+			url: accion,
+			data: formdata ? formdata: form.serialize(),
+			cache:false,
+			contentType:false,
+			processData:false,
+			xhr: function()
+			{
+				var xhr= new window.XMLHttpRequest();
+				xhr.upload.addEventListener("progress",function(evt)
+				{
+					if (evt.lengthComputable)
+					{
+						var percentComplete=evt.loaded /evt.total;
+						percentComplete=parseInt(percentComplete*100);
+						if (percentComplete<100) 
+						{
+							respuesta.append('<p class"text-center">Procesando...</p>');
+						}
+						else
+						{
+							respuesta.html('<p class"text-center"></p>');
+						}
+					}
+				},false);
+				return xhr;
+			},
+			success:function(data)
+			{
+				respuesta.html(data);
+			},
+			error:function () 
+			{
+				respuesta.html(MsjError);
+				
+			}
+			});
+		return false;
+	}
+		   );
+});
+
+</script>

@@ -28,6 +28,7 @@ class calificacionControlador extends calificacionModelo{
         return $cont;
     }
 
+
     public function mostrar_grado($carr,$user)
     {
        
@@ -46,7 +47,7 @@ class calificacionControlador extends calificacionModelo{
             }
             $cont.="</select>";
             return $cont;
-            return $cont;
+           
         }
         else
         {
@@ -60,8 +61,8 @@ class calificacionControlador extends calificacionModelo{
     public function mostrar_curso($carr,$grad,$usu)
     {
         
-        $sql=calificacionModelo::mostrar_curso_catedratico($carr,$grad,$usu);
-        $val='"'.$usu.'"';  
+        $sql=calificacionModelo::mostrar_curso_catedratico($carr,$grad,14);
+        $val='14';  
             
         $cont="<select class='form-control' id='cursos'". trim(" onchange='alumnos(". $val.")'>");
      
@@ -133,6 +134,8 @@ class calificacionControlador extends calificacionModelo{
         </div>";
         return $cont;
     }
+
+  
 
   
 

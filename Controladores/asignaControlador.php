@@ -19,28 +19,29 @@ public function agregar_asignacion_controlador($cat,$cur)
  $consulta1=modeloMain::ejecutar_consulta_simple("select * from asigna_cur_cat where id_curso=$cur and id_cat=$cat");
     if ($consulta1->rowCount()>=1)
     {
-        $alerta="1";
+      $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"el curso ya ha sido asignado","tipo"=>"error"];
     }
     else
      {
-        $datosAs=[        'curso'=>$cur,
-        'cat'=>$cat
-        ];
+        $datosAs=['curso'=>$cur,
+                  'cat'=>$cat
+                 ];
         $asigna=asignaModelos::agregar_asignacion_modelo($datosAs);
     
         
         if ($asigna->rowCount()>=1)
         {
-          $alerta="2";	
+          $alerta=["Alerta"=>"limpiar","titulo"=>"Curso asignado","texto"=>"El Curso se asigno correctamente","tipo"=>"success"];	
+          
         }
         else
         {
-        
-            $alerta="3";	
+         
+          $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar el curso","tipo"=>"error"];
         }
        
      }
-     return $alerta;
+     return asignaModelos::Sweet_alert($alerta);
 }
 
 }

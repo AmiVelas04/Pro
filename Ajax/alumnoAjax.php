@@ -8,7 +8,7 @@ require_once "../vistas/modulos/script.php";
 
 $insalum=new alumnoControlador();
 echo $insalum->agregar_alumno_controlador();
-/*
+
 if(2<2){
 
     echo  $alerta='
@@ -33,4 +33,4 @@ if(2<2){
 }
 else{
   
-}*/
+}

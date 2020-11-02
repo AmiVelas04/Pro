@@ -95,13 +95,14 @@ class cursoControlador extends cursoModelo
         
     $curso=cursoModelo::agregar_curso_modelo($datoscur);
     if ($curso->rowCount()>=1) {
-    echo "Curso Agregado";
+        $alerta=["Alerta"=>"limpiar","titulo"=>"Alumno Registrado con exito","texto"=>"El curso se registro correctamente","tipo"=>"success"];	
 
     } else
      {
-      echo  "Error al agregar curso";
+        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo asignar carrera y grado al alumno","tipo"=>"error"];	
     }
     
+    return cursoModelo::Sweet_alert($alerta);
     }
 
 

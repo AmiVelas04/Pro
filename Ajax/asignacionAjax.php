@@ -1,5 +1,5 @@
 <?php
-include "../vistas/js/sweetalert.js";
+
 
 $peticionajax=true;
 $carr=$_POST['carrera'];
@@ -19,10 +19,10 @@ require_once "../Controladores/asignaControlador.php";
 
 $asignacion= new asignaControlador();
 
-$resp=$asignacion->agregar_asignacion_controlador($cat,$curso);
+echo $asignacion->agregar_asignacion_controlador($cat,$curso);
 
 
-header("Location:".SERVERURL."cat?resp=".$resp . "");
+//header("Location:".SERVERURL."cat?resp=".$resp . "");
 
 	
 

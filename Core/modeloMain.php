@@ -146,7 +146,7 @@ class modeloMain{
 		{
 			$alerta='
 			<script>
-			swal.fire("'. $datos["titulo"].'","'. $datos["texto"].'","'. $datos["tipo"].'");
+			swal("'. $datos["titulo"].'","'. $datos["texto"].'","'. $datos["tipo"].'");
 			</script>
 			';
 			

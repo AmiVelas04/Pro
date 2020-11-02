@@ -27,13 +27,13 @@ return $sql;
 protected function mostrar_carrera_catedratico()
 {
 $cat=calificacionModelo::id_catedratico($_SESSION['usuario']);
-$sql=modeloMain::ejecutar_consulta_simple("SELECT carr.id_carr as id, carr.carrera as carrera FROM carrera carr 
+$sql=modeloMain::ejecutar_consulta_simple('SELECT carr.id_carr as id, carr.carrera as carrera FROM carrera carr 
 inner JOIN curso cur ON cur.id_carr= carr.id_carr
 INNER JOIN grado grad ON grad.id_grado=cur.id_grado
 INNER JOIN asigna_cur_cat acc ON acc.id_curso=cur.id_curso
 INNER JOIN catedratico cat ON cat.id_cat=acc.id_cat
-WHERE cat.id_cat=".$cat." 
-GROUP BY carr.id_carr");
+WHERE cat.id_cat= 14  
+GROUP BY carr.id_carr');
 
 return $sql;
 }
@@ -47,7 +47,7 @@ $usu)
     INNER JOIN carrera carr ON carr.id_carr=cur.id_carr
     INNER JOIN asigna_cur_cat acc ON acc.id_curso=cur.id_curso
     INNER JOIN catedratico cat ON cat.id_cat=acc.id_cat
-    WHERE cat.id_cat=".$cat." and carr.id_carr=".$carr." 
+    WHERE cat.id_cat=14 and carr.id_carr=".$carr." 
     GROUP BY grad.id_grado");
     return $sql;
 }
@@ -60,7 +60,7 @@ protected function mostrar_curso_catedratico($carr,$grad,$usu)
     INNER JOIN catedratico cat ON cat.id_cat=acc.id_cat
     INNER JOIN grado grad ON grad.id_grado=cur.id_grado
     INNER JOIN carrera carr ON cur.id_carr =carr.id_carr
-    WHERE cat.id_cat=".$cat." AND carr.id_carr=".$carr." AND grad.id_grado=". $grad);
+    WHERE cat.id_cat=14 AND carr.id_carr=".$carr." AND grad.id_grado=". $grad);
     
     return $sql;
 }
@@ -75,7 +75,7 @@ $cat=calificacionModelo::id_catedratico($usu);
  INNER JOIN  curso cur ON cur.id_grado =ala.id_grado AND cur.id_carr=ala.id_carr
  INNER JOIN asigna_cur_cat acc ON acc.id_curso=cur.id_curso
  INNER JOIN catedratico cat ON cat.id_cat=acc.id_cat
- WHERE cat.id_cat=".$cat." AND gra.id_grado=".$grad." AND carr.id_carr= ".$carr." AND cur.id_curso=".$cur);
+ WHERE cat.id_cat=14 AND gra.id_grado=".$grad." AND carr.id_carr= ".$carr." AND cur.id_curso=".$cur);
  
 return $sql;
 }
