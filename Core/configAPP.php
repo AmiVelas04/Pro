@@ -1,5 +1,6 @@
 <?php 
-const server="192.168.2.110";
+//const server="192.168.2.102";
+const server="Localhost";
 const usuario="PYC";
 const contra="P&C_Sis_2018";
 const bd="colegio";

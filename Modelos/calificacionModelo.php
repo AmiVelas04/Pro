@@ -98,4 +98,26 @@ return $id;
  
 }
 
+public function Guardar_cali_Modelo($datos)
+{
+	$sql=modeloMain::conectar()->prepare("Insert into Detalle_cali (t1,t2,t3,pc1,pc2,examen,total) values(:t1,:t2,:t3,:pc1,:pc2,:examen,:total) where id_peri=". $datos['bim'] ."and  id_cali= 4");
+    $sql->bindparam(":t1",$datos['ta1']);
+    $sql->bindparam(":t2",$datos['ta2']);
+    $sql->bindparam(":t3",$datos['ta3']);
+    $sql->bindparam(":pc1",$datos['p1']);
+    $sql->bindparam(":pc2",$datos['p2']);
+    $sql->bindparam(":examen",$datos['x1']);
+    $sql->bindparam(":total",$datos['t1']);
+	
+		try{
+	$sql->execute();
+	return $sql;
+}
+catch (PDOException $e)
+{
+	echo "El error al agregar calificacion es: " .$e;
+}
+
+}
+
 }

@@ -135,10 +135,40 @@ class calificacionControlador extends calificacionModelo{
         return $cont;
     }
 
-  
+  public function Ingreso_cali_Controlador()
+  {
+  $curso=  $_POST['curso'];
+  $idalum=  $_POST['alum'];
+    $tar1=$_POST['t1'];
+    $tar2=$_POST['t2'];
+    $tar3=$_POST['t3'];
+    $par1=$_POST['p1'];
+    $par2=$_POST['p2'];
+    $ex1=$_POST['x1'];
+    $nota=$_POST['not'];
+    $bim=$_POST['bim'];
+    $datoscal=[
+        'idcurso'=>$cod,
+        'idal'=>$idalum,
+        'bim'=>$bim,
+        'ta1'=>$tar1,
+        'ta2'=>$tar2,
+        'ta3'=>$tar3,
+        'p1'=>$par1,
+        'p2'=>$par2,
+        'x1'=>$ex1,
+        'not'=>$nota];
+        $res= calificacionModelo::Guardar_cali_Modelo($datoscal);
 
-  
+    if($res.rowCount()>=1)
+    {
+        $alerta=["Alerta"=>"limpiar","titulo"=>"Registro exitoso","texto"=>"La calificacion se registro con exito","tipo"=>"success"];	
+    }
+    else{
 
+        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo ingresar la calificacion","tipo"=>"error"];	    }
+    return calificacionModelo::Sweet_alert(alerta);
+  }
 
 
 

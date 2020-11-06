@@ -3,7 +3,6 @@
 $peticionajax=true;
 require_once "../core/configeneral.php";
 require_once "../Controladores/alumnoControlador.php";
-require_once "../vistas/modulos/script.php";
 
 
 $insalum=new alumnoControlador();

@@ -18,7 +18,7 @@
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ALUMNO</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="save" name="FormularioAjax" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data>
+					<form data-form="save" name="FormularioAjax" action="<?php echo SERVERURL;?>ajax/alumnoAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data">
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment-o></i> &nbsp; Información del Alumno</legend>
 				    		<div class="container-fluid">

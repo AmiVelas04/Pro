@@ -89,7 +89,7 @@ catch (PDOException $e)
 protected function Asignar_alumno_encargado($idal,$idenc)
 {
 
-		$sql=modeloMain::conectar()->prepare("Insert into asigna_encar(id_enc,cod_al) values(:enc,:al)");
+	$sql=modeloMain::conectar()->prepare("Insert into asigna_encar(id_enc,cod_al) values(:enc,:al)");
 	$sql->bindparam(":enc",$idenc);
 	$sql->bindparam(":al",$idal);
 		try{
