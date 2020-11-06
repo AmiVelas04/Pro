@@ -45,7 +45,7 @@
 							?>
 							
 
-								<form data-form="save" name="FormularioAjax" action="<?php echo SERVERURL;?>ajax/addcaliAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data">
+								<form data-form="save" name="FormularioAjax" action ="<?php echo SERVERURL;?>ajax/addcaliAjax.php" method="POST" class="FormularioAjax" autocomplete="on" enctype="multipart/form-data">
 								<div class="col-md-12">
 								<input  pattern="[0-9]{1,2}" class="form-control" type="hidden" name="curso" required="" maxlength="2" value="<?php echo $cu;?>">
 								<input  pattern="[0-9]{1,2}" class="form-control" type="hidden" name="alumn" required="" maxlength="2" value="<?php echo $alu;?>">
@@ -107,7 +107,7 @@
 								<p class="list-group-item-text">
 								
 									<label><strong>Nota</strong></label>
-									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="not" required="" maxlength="2" disabled="true">
+									<input pattern="[0-9]{1,2}" class="form-control" type="text" name="not" required="" maxlength="2">
 								</p>
 								</div>
 								<div class="col-md-2 text-center">
@@ -123,24 +123,23 @@
 								
 									<label><strong>Guardar</strong></label>
 									<br>
-									<button class="btn btn-success" type="submit" name="guard" ><i class="zmdi zmdi-check"></i></button>
+									<button type="save" class="btn btn-success"><i class="zmdi zmdi-check"></i></button>
 								</p>
+								
 								</div>
-								<div ></div>
+								
 								</div>
+								<div class="RespuestaAjax"></div>
 							</form>
 						</div>
-
-						</div>
-						<div class="list-group-separator"></div>
 						
+						</div>
 						<div class="list-group-separator"></div>
 					</div>
 				
 				</div>
 			</div>
 		</div>
-
 		<?echo ?>
 		<script>
 		
@@ -156,15 +155,15 @@ $('.FormularioAjax').submit(function(e)
 	var formdata= new FormData(this);
 
 	var textoAlerta;
-	if (tipo==='save') 
+	if (tipo=='save') 
 	{
 		textoAlerta="los datos seran almacenados" ;
 	}
-	else if(tipo==='delete')
+	else if(tipo=='delete')
 	{
 	textoAlerta="los datos seran eliminados";	
 	}
-	else if(tipo==='update')
+	else if(tipo=='update')
 	{
 	textoAlerta="los datos se actualizaran";	
 	}
@@ -227,5 +226,10 @@ $('.FormularioAjax').submit(function(e)
 });
 
 </script>
-<?php ;?>
+	
+		
+
+
+
+
 		

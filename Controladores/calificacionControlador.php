@@ -13,7 +13,7 @@ require_once "./Modelos/calificacionModelo.php";
 class calificacionControlador extends calificacionModelo{
 
     public function mostrar_carrera()
-    {
+    {         
         $sql=calificacionControlador::mostrar_carrera_catedratico();
         $cont="";
         if ($sql->rowCount()>=1)
@@ -138,7 +138,7 @@ class calificacionControlador extends calificacionModelo{
   public function Ingreso_cali_Controlador()
   {
   $curso=  $_POST['curso'];
-  $idalum=  $_POST['alum'];
+  $idalum=  $_POST['alumn'];
     $tar1=$_POST['t1'];
     $tar2=$_POST['t2'];
     $tar3=$_POST['t3'];
@@ -148,7 +148,6 @@ class calificacionControlador extends calificacionModelo{
     $nota=$_POST['not'];
     $bim=$_POST['bim'];
     $datoscal=[
-        'idcurso'=>$cod,
         'idal'=>$idalum,
         'bim'=>$bim,
         'ta1'=>$tar1,
@@ -160,14 +159,15 @@ class calificacionControlador extends calificacionModelo{
         'not'=>$nota];
         $res= calificacionModelo::Guardar_cali_Modelo($datoscal);
 
-    if($res.rowCount()>=1)
+    if($res->rowCount()>=1)
     {
         $alerta=["Alerta"=>"limpiar","titulo"=>"Registro exitoso","texto"=>"La calificacion se registro con exito","tipo"=>"success"];	
     }
     else{
 
-        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo ingresar la calificacion","tipo"=>"error"];	    }
-    return calificacionModelo::Sweet_alert(alerta);
+        $alerta=["Alerta"=>"simple","titulo"=>"Ocurrio un error","texto"=>"No se pudo ingresar la calificacion","tipo"=>"error"];	    
+    }
+    return calificacionModelo::Sweet_alert($alerta);
   }
 
 

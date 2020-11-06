@@ -19,7 +19,7 @@
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; DATOS DE LA ASIGNACION</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="save"  method="POST" class="FormularioAjax" action="<?php echo SERVERURL;?>ajax/asignacionAjax.php" name= "FormularioAjax" autocomplete="on" enctype="multipart/form-data">
+					<form data-form="Guarda" name="FormularioAjax" method="POST" class="FormularioAjax" action="<?php echo SERVERURL;?>ajax/asignacionAjax.php" name= "FormularioAjax" autocomplete="on" enctype="multipart/form-data">
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment"></i> &nbsp; Datos básicos</legend>
 				    		<div class="container-fluid">
@@ -78,14 +78,13 @@
 				    
 				    	<br>
 					    <p class="text-center" style="margin-top: 20px;">
-						<button type="submit" id= "save" name ="id" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i>Guardar</button>
+						<button type="Guarda" id = "save" class="btn btn-info btn-raised btn-sm"><i class="zmdi zmdi-floppy"></i>Guardar</button>
 					    </p>
-						<div name="RespuestaAjax" id="RespuestaAjax"></div>
+						<div class ="RespuestaAjax"></div>
 					</form>
 				</div>
 			</div>
 		</div>
-
 		<?echo ?>
 		<script>
 		
@@ -101,15 +100,15 @@ $('.FormularioAjax').submit(function(e)
 	var formdata= new FormData(this);
 
 	var textoAlerta;
-	if (tipo==='save') 
+	if (tipo=='Guarda') 
 	{
 		textoAlerta="los datos seran almacenados" ;
 	}
-	else if(tipo==='delete')
+	else if(tipo=='delete')
 	{
 	textoAlerta="los datos seran eliminados";	
 	}
-	else if(tipo==='update')
+	else if(tipo=='update')
 	{
 	textoAlerta="los datos se actualizaran";	
 	}
@@ -172,4 +171,6 @@ $('.FormularioAjax').submit(function(e)
 });
 
 </script>
+	
 		
+

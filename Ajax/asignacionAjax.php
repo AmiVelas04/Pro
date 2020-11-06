@@ -22,7 +22,6 @@ $asignacion= new asignaControlador();
 echo $asignacion->agregar_asignacion_controlador($cat,$curso);
 
 
-//header("Location:".SERVERURL."cat?resp=".$resp . "");
 
 	
 

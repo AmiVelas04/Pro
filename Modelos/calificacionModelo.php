@@ -100,14 +100,15 @@ return $id;
 
 public function Guardar_cali_Modelo($datos)
 {
-	$sql=modeloMain::conectar()->prepare("Insert into Detalle_cali (t1,t2,t3,pc1,pc2,examen,total) values(:t1,:t2,:t3,:pc1,:pc2,:examen,:total) where id_peri=". $datos['bim'] ."and  id_cali= 4");
-    $sql->bindparam(":t1",$datos['ta1']);
-    $sql->bindparam(":t2",$datos['ta2']);
-    $sql->bindparam(":t3",$datos['ta3']);
-    $sql->bindparam(":pc1",$datos['p1']);
-    $sql->bindparam(":pc2",$datos['p2']);
-    $sql->bindparam(":examen",$datos['x1']);
-    $sql->bindparam(":total",$datos['t1']);
+
+	$sql=modeloMain::conectar()->prepare("update Detalle_cali set t1=:ta1, t2=:ta2, t3=:ta3, pc1=:p1,pc2=:p2,examen=:exa, total=:tot where id_peri=".$datos['bim']." and  id_cali= 4");
+    $sql->bindparam(":ta1",$datos['ta1']);
+    $sql->bindparam(":ta2",$datos['ta2']);
+    $sql->bindparam(":ta3",$datos['ta3']);
+    $sql->bindparam(":p1",$datos['p1']);
+    $sql->bindparam(":p2",$datos['p2']);
+    $sql->bindparam(":exa",$datos['x1']);
+    $sql->bindparam(":tot",$datos['not']);
 	
 		try{
 	$sql->execute();
