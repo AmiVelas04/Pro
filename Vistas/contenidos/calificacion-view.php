@@ -6,7 +6,7 @@
 			?>
 			<p class="lead">Seleccione la carrera, el grado y el curso para poder ingresar calificaciones</p>
 		</div>
-		
+
 	
 		<div class="col-xs-12 col-sm-4 text-center">
 		<h2><label class="">Carrera *</label></h2>

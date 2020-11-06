@@ -12,14 +12,14 @@
 			</ul>
 		</div>
 
-		<!-- panel datos de la empresa -->
+		<!-- panel datos de la asignacion -->
 		<div class="container-fluid">
 			<div class="panel panel-info">
 				<div class="panel-heading">
 					<h3 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; DATOS DE LA ASIGNACION</h3>
 				</div>
 				<div class="panel-body">
-					<form data-form="Guarda" name="FormularioAjax" method="POST" class="FormularioAjax" action="<?php echo SERVERURL;?>ajax/asignacionAjax.php" name= "FormularioAjax" autocomplete="on" enctype="multipart/form-data">
+					<form data-form="Guarda" method="POST" class="FormularioAjax" action="<?php echo SERVERURL;?>ajax/asignacionAjax.php" name= "FormularioAjax" autocomplete="on" enctype="multipart/form-data">
 				    	<fieldset>
 				    		<legend><i class="zmdi zmdi-assignment"></i> &nbsp; Datos básicos</legend>
 				    		<div class="container-fluid">

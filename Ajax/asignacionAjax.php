@@ -14,7 +14,6 @@ if (!isset($_POST['cate']))
     $cat=$_POST['cat'];
 }
 
-
 require_once "../Controladores/asignaControlador.php";
 
 $asignacion= new asignaControlador();
